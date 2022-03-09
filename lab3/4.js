@@ -8,7 +8,13 @@
  */
 
 function prettySum(arr) {
-    // code here
+    sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (!isNaN(arr[i])  && arr[i] !== false && arr[i] !== true && i % 2 == 0) {
+            sum += arr[i];
+        }
+    }
+    return sum * arr[arr.length - 1];
 }
 
 module.exports = prettySum;

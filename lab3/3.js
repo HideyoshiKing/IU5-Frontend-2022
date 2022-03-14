@@ -8,7 +8,16 @@
  */
 
 function multiplyArray(arr, n) {
-    // code here
+    let newArray = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (!isNaN(arr[i])  && arr[i] !== false && arr[i] !== true) {
+            newArray.push(arr[i] * n);
+        }
+        else {
+            newArray.push(arr[i]);
+        }
+    }
+    return newArray;
 }
 
 module.exports = multiplyArray;

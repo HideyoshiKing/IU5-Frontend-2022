@@ -11,7 +11,24 @@
  */
 
 function checkBrackets(str) {
-    //code here
+    let stack = [];
+    let brackets = new Map([
+        [')' , '('],
+        [']' , '['],
+        ['>' , '<']
+    ]);
+    let closedBrackets = new Set([')',']','>']);
+    for (let index = 0; index < str.length; index++) {
+        if (closedBrackets.has(str[index])) {
+            if (brackets.get(str[index]) != stack.pop()) {
+                return false;
+            }
+        }
+        else {
+            stack.push(str[index]);
+        }
+    }
+    return stack.length == 0;
 }
 
 module.exports = checkBrackets;

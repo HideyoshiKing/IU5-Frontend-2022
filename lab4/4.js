@@ -17,7 +17,22 @@
 */
 
 function get1DArray(arr) {
-    //code here
+    // return arr.flat(Infinity); не везде поддерживается
+
+    let result = []
+
+    function simplifyArray(arr) {
+        arr.forEach(i => {
+            if (Array.isArray(i)) {
+            simplifyArray(i)
+            }
+            else {
+                result.push(i)
+            }
+        })
+    }
+    simplifyArray(arr);
+    return result;
 }
 
 module.exports = get1DArray;
